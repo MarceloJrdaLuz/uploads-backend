@@ -12,7 +12,10 @@ const app = express();
  * Database setup
  */
 mongoose.connect(
-  process.env.MONGO_URL,
+  process.env.MONGO_URL,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  } 
 );
 
 app.use(cors());
@@ -26,4 +29,4 @@ app.use(
 
 app.use(require("./routes"));
 
-app.listen(process.env.PORT || 3000);
+app.listen(3000);
