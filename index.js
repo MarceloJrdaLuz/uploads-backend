@@ -25,6 +25,6 @@ app.use(
   express.static(path.resolve(__dirname, "..", "tmp", "uploads"))
 );
 
-app.use(require("./routes"));
+app.use(require("./src/routes"));
 
 app.listen(process.env.PORT || 3000);
