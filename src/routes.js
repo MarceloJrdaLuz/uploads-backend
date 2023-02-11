@@ -1,7 +1,6 @@
 const routes = require("express").Router();
 const multer = require("multer");
 const multerConfig = require("./config/multer");
-
 const Post = require("./models/post");
 const Dirigente = require("./models/dirigenteGrupo")
 
