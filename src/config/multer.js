@@ -13,11 +13,8 @@ const storageTypes = {
       crypto.randomBytes(16, (err, hash) => {
         if (err) cb(err);
 
-        const fileExtension = path.extname(file.originalname);
-        const fileName = `${hash.toString("hex")}-${file.originalname.replace(
-          fileExtension,
-          fileExtension.toLowerCase()
-        )}`;
+        const fileName = `${hash.toString("hex")}-${path.basename(file.originalname, fileExtension)}${fileExtension.toLowerCase()}`;
+
 
         cb(null, file.key);
       });
@@ -36,11 +33,8 @@ const storageTypes = {
       crypto.randomBytes(0, (err, hash) => {
         if (err) cb(err);
 
-        const fileExtension = path.extname(file.originalname);
-        const fileName = `${hash.toString("hex")}-${file.originalname.replace(
-          fileExtension,
-          fileExtension.toLowerCase()
-        )}`;
+        const fileName = `${hash.toString("hex")}-${path.basename(file.originalname, fileExtension)}${fileExtension.toLowerCase()}`;
+
 
         cb(null, fileName);
       });
