@@ -14,15 +14,12 @@ const storageTypes = {
         if (err) cb(err);
 
         const fileExtension = path.extname(file.originalname);
-        const convertedExtension = fileExtension.toLowerCase();
-
         const fileName = `${hash.toString("hex")}-${file.originalname.replace(
           fileExtension,
-          convertedExtension
+          fileExtension.toLowerCase()
         )}`;
 
-
-        cb(null, fileName);
+        cb(null, file.key);
       });
     }
   }),
